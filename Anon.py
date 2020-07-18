@@ -47,12 +47,12 @@ def echo(update, context):
 
 def main():
     updater = Updater(token=token, use_context=True)
-    updater.start_polling(clean=True)
     dp = updater.dispatcher
     logger.info("Bot started.")
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
     updater.start_polling()
+    updater.idle()
 
 if __name__ == '__main__':
     main()
