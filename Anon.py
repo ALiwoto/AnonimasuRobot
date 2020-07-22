@@ -24,7 +24,7 @@ def start(update, context):
         chat_user = False
     if not chat_user:
         return
-    update.message.reply_text('Hii, Send any message here to convey it into Anonymous kaizoku without any trace')
+    update.message.reply_text('YOUR-STRING-HERE')
 
 @run_async
 def echo(update, context):
