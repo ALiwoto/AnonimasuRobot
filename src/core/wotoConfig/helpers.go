@@ -63,7 +63,7 @@ func GetBlockExpirationString() string {
 	case ConfigSettings.BlockExpirationDays == 0:
 		return ""
 	case ConfigSettings.BlockExpirationDays > 0:
-		return "for" + ssg.ToBase10(int64(ConfigSettings.BlockExpirationDays)) + " days"
+		return "for " + ssg.ToBase10(int64(ConfigSettings.BlockExpirationDays)) + " days"
 	case ConfigSettings.BlockExpirationDays < 0:
 		return "forever"
 	}
