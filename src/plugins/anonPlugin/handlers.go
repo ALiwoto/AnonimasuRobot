@@ -122,7 +122,16 @@ func blockReqBtnResponse(bot *gotgbot.Bot, ctx *ext.Context) error {
 		return ext.EndGroups
 	}
 
-	usersDatabase.BlockUser(blockReq.targetId)
-	_, _, _ = msg.EditText(bot, mdparser.GetMono("Anon user has been blocked.").ToString(), nil)
+	switch allStrs[2] {
+	case blockReqDenyCBData:
+		blockReq.DeleteMessage()
+		return ext.EndGroups
+	case blockReqConfirmCBData:
+		usersDatabase.BlockUser(blockReq.targetId)
+		_, _, _ = msg.EditText(bot, mdparser.GetMono("Anon user has been blocked.").ToString(), nil)
+	default:
+		return ext.EndGroups
+	}
+
 	return ext.EndGroups
 }
