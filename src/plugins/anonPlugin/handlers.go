@@ -113,6 +113,7 @@ func blockReqBtnResponse(bot *gotgbot.Bot, ctx *ext.Context) error {
 			ShowAlert: true,
 			CacheTime: 5800,
 		})
+		return ext.EndGroups
 	}
 
 	blockReq := blockRequestMap.Get(ownerId)
