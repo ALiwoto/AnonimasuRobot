@@ -27,7 +27,7 @@ func StartDB() error {
 	logging.Info("Database connected ")
 
 	//Create tables if they don't exist
-	err = wv.Core.AutoMigrateDB(
+	err = db.AutoMigrate(
 		usersDatabase.ModelBlockedUser,
 	)
 	if err != nil {
