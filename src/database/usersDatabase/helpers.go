@@ -42,8 +42,8 @@ func IsUserBlocked(userId int64) bool {
 	}
 
 	user := new(BlockedUser)
-	err := wv.Core.DB.First(user, encoded).Error
-	if err != nil || len(user.UserId) == 0 {
+	err := wv.Core.DB.First(user, "user_id = ?", encoded).Error
+	if err != nil || !user.IsValid(expirationDuration) {
 		blockedUserMap.Add(userId, BLockedUserEmpty)
 		return false
 	}
