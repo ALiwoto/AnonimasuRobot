@@ -64,7 +64,9 @@ func blockCommandHandler(bot *gotgbot.Bot, ctx *ext.Context) error {
 	targetUser := usersDatabase.GetUserFromMessageId(replied.MessageId)
 	if targetUser == 0 {
 		md := mdparser.GetNormal("Looks like your /block command was sent to a very old message.")
-		_, _ = bot.SendMessage(user.Id, md.ToString(), nil)
+		_, _ = bot.SendMessage(user.Id, md.ToString(), &gotgbot.SendMessageOpts{
+			ParseMode: gotgbot.ParseModeMarkdownV2,
+		})
 		return ext.EndGroups
 	}
 
@@ -85,6 +87,7 @@ func blockCommandHandler(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 	blockReq.botMessage, _ = ctx.EffectiveMessage.Reply(bot, md.ToString(), &gotgbot.SendMessageOpts{
 		ReplyMarkup: blockReq.GetButtons(),
+		ParseMode:   gotgbot.ParseModeMarkdownV2,
 	})
 
 	return ext.EndGroups
@@ -129,7 +132,10 @@ func blockReqBtnResponse(bot *gotgbot.Bot, ctx *ext.Context) error {
 		return ext.EndGroups
 	case blockReqConfirmCBData:
 		usersDatabase.BlockUser(blockReq.targetId)
-		_, _, _ = msg.EditText(bot, mdparser.GetMono("Anon user has been blocked.").ToString(), nil)
+		_, _, _ = msg.EditText(bot, mdparser.GetMono("Anon user has been blocked.").ToString(),
+			&gotgbot.EditMessageTextOpts{
+				ParseMode: gotgbot.ParseModeMarkdownV2,
+			})
 	default:
 		return ext.EndGroups
 	}
