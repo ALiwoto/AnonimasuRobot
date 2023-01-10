@@ -6,6 +6,7 @@ import (
 	"encoding/base64"
 	"time"
 
+	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/wotoConfig"
 	wv "github.com/AnimeKaizoku/AnonimasuRobot/src/core/wotoValues"
 	"github.com/AnimeKaizoku/ssg/ssg"
 	"github.com/PaulSonOfLars/gotgbot/v2"
@@ -25,8 +26,14 @@ func GetUserFromMessageId(messageId int64) int64 {
 }
 
 func IsUserBlocked(userId int64) bool {
+	expirationDuration := wotoConfig.GetExpirationDays()
+	if expirationDuration == 0 {
+		// 0 means block feature is disabled entirely.
+		return false
+	}
+
 	if u := blockedUserMap.Get(userId); u != nil {
-		return u.IsValid()
+		return u.IsValid(expirationDuration)
 	}
 
 	encoded := _encodeUserId(userId)
