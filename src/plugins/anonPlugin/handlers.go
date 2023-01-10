@@ -79,7 +79,8 @@ func blockCommandHandler(bot *gotgbot.Bot, ctx *ext.Context) error {
 	}
 	blockRequestMap.Add(blockReq.ownerId, blockReq)
 
-	md := mdparser.GetNormal("you are about to block an anon user and this action will block them, whoever they are for x days.")
+	md := mdparser.GetNormal("you are about to block an anon user and this action will block them, whoever they are")
+	md.Bold(wotoConfig.GetBlockExpirationString())
 	md.Normal("\nAre you sure you want to continue?")
 
 	blockReq.botMessage, _ = ctx.EffectiveMessage.Reply(bot, md.ToString(), &gotgbot.SendMessageOpts{

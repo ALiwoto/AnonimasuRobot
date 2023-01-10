@@ -45,13 +45,30 @@ func GetTargetChat() int64 {
 	return 0
 }
 
-func GetExpirationDays() time.Duration {
+func GetBlockExpirationDays() time.Duration {
 	if ConfigSettings != nil {
 		return time.Duration(ConfigSettings.BlockExpirationDays) * 24 * time.Hour
 	}
 
 	// default is 60 days
 	return 60 * 24 * time.Hour
+}
+
+func GetBlockExpirationString() string {
+	if ConfigSettings == nil {
+		return "for 60 days"
+	}
+
+	switch {
+	case ConfigSettings.BlockExpirationDays == 0:
+		return ""
+	case ConfigSettings.BlockExpirationDays > 0:
+		return "for" + ssg.ToBase10(int64(ConfigSettings.BlockExpirationDays)) + " days"
+	case ConfigSettings.BlockExpirationDays < 0:
+		return "forever"
+	}
+
+	return ""
 }
 
 func GetWorkingChatId() int64 {

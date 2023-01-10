@@ -14,7 +14,7 @@ func (b *BlockedUser) IsExpired(expirationDuration time.Duration) bool {
 		return false
 	}
 
-	return time.Since(b.UpdatedAt) > wotoConfig.GetExpirationDays()
+	return time.Since(b.UpdatedAt) > wotoConfig.GetBlockExpirationDays()
 }
 
 func (b *BlockedUser) IsValid(expirationDuration time.Duration) bool {

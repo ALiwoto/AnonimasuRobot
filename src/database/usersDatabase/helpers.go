@@ -26,7 +26,7 @@ func GetUserFromMessageId(messageId int64) int64 {
 }
 
 func IsUserBlocked(userId int64) bool {
-	expirationDuration := wotoConfig.GetExpirationDays()
+	expirationDuration := wotoConfig.GetBlockExpirationDays()
 	if expirationDuration == 0 {
 		// 0 means block feature is disabled entirely.
 		return false
