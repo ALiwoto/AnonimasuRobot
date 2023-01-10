@@ -89,6 +89,7 @@ func blockCommandHandler(bot *gotgbot.Bot, ctx *ext.Context) error {
 		ReplyMarkup: blockReq.GetButtons(),
 		ParseMode:   gotgbot.ParseModeMarkdownV2,
 	})
+	blockReq.bot = bot
 
 	return ext.EndGroups
 }
