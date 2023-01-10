@@ -16,12 +16,12 @@ func (r *blockUserRequest) GetButtons() *gotgbot.InlineKeyboardMarkup {
 		InlineKeyboard: [][]gotgbot.InlineKeyboardButton{
 			{
 				{
-					Text: "✔️",
+					Text: "Confirm",
 					CallbackData: blockReqCBData + sepChar +
 						ssg.ToBase10(r.ownerId) + sepChar + blockReqConfirmCBData,
 				},
 				{
-					Text: "❌",
+					Text: "✖️",
 					CallbackData: blockReqCBData + sepChar +
 						ssg.ToBase10(r.ownerId) + sepChar + blockReqDenyCBData,
 				},
