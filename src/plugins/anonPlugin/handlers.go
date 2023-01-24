@@ -17,8 +17,11 @@ func anonMessageFilter(msg *gotgbot.Message) bool {
 
 func anonMessageHandler(bot *gotgbot.Bot, ctx *ext.Context) error {
 	user := ctx.EffectiveUser
-	if usersDatabase.IsUserBlocked(user.Id) || ctx.Message.Text == "" {
+	msg := ctx.EffectiveMessage
+	if usersDatabase.IsUserBlocked(user.Id) {
 		return ext.EndGroups
+	} else if ctx.Message.Text == "" || strings.HasPrefix(msg.Text, "/") {
+		return ext.ContinueGroups
 	}
 
 	chatMember, err := bot.GetChatMember(wotoConfig.GetTargetChat(), user.Id, nil)

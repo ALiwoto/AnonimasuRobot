@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/ALiwoto/mdparser v1.1.2
 	github.com/AnimeKaizoku/ssg v1.1.26
-	github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.13
+	github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-rc.14
 	go.uber.org/zap v1.24.0
 	gorm.io/driver/sqlite v1.4.4
 	gorm.io/gorm v1.24.3
