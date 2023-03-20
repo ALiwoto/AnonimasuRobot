@@ -20,7 +20,8 @@ func ExtractRepliedToMessageId(msg *gotgbot.Message) int64 {
 		return 0
 	}
 
-	result := ssg.ToInt64(strings.SplitN(linkLine, "/", 2)[0])
+	linkParts := strings.SplitN(linkLine, "/", 2)
+	result := ssg.ToInt64(linkParts[len(linkParts)-1])
 	if result <= 0 {
 		return 0
 	}
