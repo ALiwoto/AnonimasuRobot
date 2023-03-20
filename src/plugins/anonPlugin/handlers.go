@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"github.com/ALiwoto/mdparser/mdparser"
+	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/utils"
 	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/wotoConfig"
 	"github.com/AnimeKaizoku/AnonimasuRobot/src/database/usersDatabase"
 	"github.com/AnimeKaizoku/ssg/ssg"
@@ -34,12 +35,30 @@ func anonMessageHandler(bot *gotgbot.Bot, ctx *ext.Context) error {
 		return ext.EndGroups
 	}
 
-	message, err := ctx.Message.Copy(bot, wotoConfig.GetTargetChat(), nil)
-	if err != nil {
-		return ext.EndGroups
+	var messageId int64
+	repliedId := utils.ExtractRepliedToMessageId(ctx.Message)
+	if repliedId == 0 {
+		message, err := ctx.Message.Copy(bot, wotoConfig.GetTargetChat(), &gotgbot.CopyMessageOpts{
+			ReplyToMessageId: utils.ExtractRepliedToMessageId(ctx.Message),
+		})
+		if err != nil || message == nil {
+			return ext.EndGroups
+		}
+
+		messageId = message.MessageId
+	} else {
+		message, err := bot.SendMessage(wotoConfig.GetTargetChat(), ctx.Message.Text, &gotgbot.SendMessageOpts{
+			ReplyToMessageId: repliedId,
+			Entities:         ctx.Message.Entities,
+		})
+		if err != nil || message == nil {
+			return ext.EndGroups
+		}
+
+		messageId = message.MessageId
 	}
 
-	usersDatabase.SetUserFromMessageId(message.MessageId, user)
+	usersDatabase.SetUserFromMessageId(messageId, user)
 
 	return ext.EndGroups
 }
