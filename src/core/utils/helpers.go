@@ -27,7 +27,7 @@ func ExtractRepliedToMessageId(msg *gotgbot.Message) int64 {
 	}
 
 	msg.Text = wholeLines[1]
-	linkLen := int64(utf8.RuneCountInString(linkLine))
+	linkLen := int64(utf8.RuneCountInString(linkLine)) + 1
 	newEntities := []gotgbot.MessageEntity{}
 	for i := 0; i < len(msg.Entities); i++ {
 		if msg.Entities[i].Offset < linkLen {
