@@ -3,7 +3,7 @@ package usersDatabase
 import (
 	"time"
 
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/wotoConfig"
+	"github.com/ALiwoto/AnonimasuRobot/src/core/wotoConfig"
 )
 
 //---------------------------------------------------------

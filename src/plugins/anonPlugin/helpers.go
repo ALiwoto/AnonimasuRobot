@@ -3,7 +3,7 @@ package anonPlugin
 import (
 	"time"
 
-	"github.com/AnimeKaizoku/ssg/ssg"
+	"github.com/ALiwoto/ssg/ssg"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
 )

@@ -3,9 +3,9 @@ package database
 import (
 	"sync"
 
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/logging"
-	wv "github.com/AnimeKaizoku/AnonimasuRobot/src/core/wotoValues"
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/database/usersDatabase"
+	"github.com/ALiwoto/AnonimasuRobot/src/core/logging"
+	wv "github.com/ALiwoto/AnonimasuRobot/src/core/wotoValues"
+	"github.com/ALiwoto/AnonimasuRobot/src/database/usersDatabase"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

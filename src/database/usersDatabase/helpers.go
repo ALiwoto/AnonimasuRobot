@@ -6,9 +6,9 @@ import (
 	"encoding/base64"
 	"time"
 
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/wotoConfig"
-	wv "github.com/AnimeKaizoku/AnonimasuRobot/src/core/wotoValues"
-	"github.com/AnimeKaizoku/ssg/ssg"
+	"github.com/ALiwoto/AnonimasuRobot/src/core/wotoConfig"
+	wv "github.com/ALiwoto/AnonimasuRobot/src/core/wotoValues"
+	"github.com/ALiwoto/ssg/ssg"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 )
 

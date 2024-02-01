@@ -4,10 +4,10 @@ import (
 	"strings"
 
 	"github.com/ALiwoto/mdparser/mdparser"
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/utils"
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/wotoConfig"
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/database/usersDatabase"
-	"github.com/AnimeKaizoku/ssg/ssg"
+	"github.com/ALiwoto/AnonimasuRobot/src/core/utils"
+	"github.com/ALiwoto/AnonimasuRobot/src/core/wotoConfig"
+	"github.com/ALiwoto/AnonimasuRobot/src/database/usersDatabase"
+	"github.com/ALiwoto/ssg/ssg"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 )

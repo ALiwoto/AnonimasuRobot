@@ -3,7 +3,7 @@ package usersDatabase_test
 import (
 	"testing"
 
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/database/usersDatabase"
+	"github.com/ALiwoto/AnonimasuRobot/src/database/usersDatabase"
 )
 
 func TestUserHistorySlices(t *testing.T) {

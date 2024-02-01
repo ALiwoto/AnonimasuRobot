@@ -3,10 +3,10 @@ package main
 import (
 	"log"
 
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/logging"
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/wotoConfig"
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/database"
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/plugins"
+	"github.com/ALiwoto/AnonimasuRobot/src/core/logging"
+	"github.com/ALiwoto/AnonimasuRobot/src/core/wotoConfig"
+	"github.com/ALiwoto/AnonimasuRobot/src/database"
+	"github.com/ALiwoto/AnonimasuRobot/src/plugins"
 )
 
 func main() {

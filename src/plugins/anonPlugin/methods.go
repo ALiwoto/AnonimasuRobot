@@ -1,7 +1,7 @@
 package anonPlugin
 
 import (
-	"github.com/AnimeKaizoku/ssg/ssg"
+	"github.com/ALiwoto/ssg/ssg"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 )
 

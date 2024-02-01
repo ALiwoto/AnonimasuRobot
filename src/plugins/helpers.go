@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/logging"
-	"github.com/AnimeKaizoku/AnonimasuRobot/src/core/wotoConfig"
+	"github.com/ALiwoto/AnonimasuRobot/src/core/logging"
+	"github.com/ALiwoto/AnonimasuRobot/src/core/wotoConfig"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 )
